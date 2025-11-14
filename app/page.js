@@ -84,22 +84,29 @@ export default function Home() {
     <div className="flex flex-col h-screen bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950 text-white">
       {/* HEADER */}
       <header className="w-full border-b border-neutral-800 bg-neutral-900/60 backdrop-blur-xl py-5 px-8 shadow-lg flex items-center justify-between sticky top-0 z-50">
-        <h1 className="text-2xl md:text-3xl font-extrabold font-mono tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-blue-600">
+        <h1 className="sm:text-xl text-1xl md:text-3xl font-extrabold font-mono tracking-wide bg-clip-text text-transparent mx-1 bg-gradient-to-r from-blue-300 to-blue-600">
           ❍ Mateen's ChatBot
         </h1>
-        <button className="bg-gradient-to-r from-blue-300 to-blue-600 text-sm md:text-1xl hover:scale-120 cursor-pointer p-2 px-3 md:px-5 rounded-full active:scale-[0.96] transition-all">
+        <button className="bg-gradient-to-r from-blue-300 to-blue-600 text-xs md:text-1xl hover:scale-120 cursor-pointer p-2 px-3 md:px-5 rounded-2xl active:scale-[0.96] transition-all">
           <a
             href="https://myportfolio-abdulmateen.vercel.app/"
             target="_blank"
-            className="font-bold font-mono"
+            className="font-bold gap-2 flex font-mono"
           >
-            Portfolio ➔
+            Portfolio <p className="hidden md:block">➔</p>
           </a>
         </button>
       </header>
 
       {/* CHAT AREA */}
       <div className="flex-1 overflow-y-auto px-6 py-6 space-y-5 scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-neutral-900">
+        {!messages.length && (
+          <div className="text-center flex items-center justify-center text-[#1f6fe77a] mt-10">
+            <p className="md:text-4xl text-3xl font-mono font-extrabold ">
+              Start the conversation!
+            </p>
+          </div>
+        )}
         {messages.map((message, index) => (
           <motion.div
             key={index}
@@ -151,9 +158,9 @@ export default function Home() {
           <button
             onClick={sendMessage}
             disabled={isLoading || !input.trim()}
-            className="px-7 py-4 bg-blue-600 text-white rounded-2xl shadow-lg hover:bg-blue-700 hover:shadow-blue-700/30 transition disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
+            className="px-4 md:px-7 text-2xl md:text-xl flex  gap-2 py-3 md:py-3.5 bg-blue-600 text-white rounded-2xl shadow-lg hover:bg-blue-700 hover:shadow-blue-700/30 transition disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
           >
-            Send ➣
+            <p className="hidden md:block">Send </p> <p>➣</p>
           </button>
         </div>
       </footer>
