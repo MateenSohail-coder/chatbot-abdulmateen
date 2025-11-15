@@ -872,7 +872,7 @@ export default function Chatbot() {
         }`}
       >
         <h1
-          className={`text-xl md:text-3xl font-extrabold font-mono tracking-wide bg-clip-text text-transparent bg-gradient-to-r ${accentColors[accent]}`}
+          className={`text-sm sm:text-1xl md:text-3xl font-extrabold font-mono tracking-wide bg-clip-text text-transparent bg-gradient-to-r ${accentColors[accent]}`}
         >
           ❍ Mateen's ChatBot
         </h1>
